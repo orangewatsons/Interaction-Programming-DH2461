@@ -1,0 +1,15 @@
+@CHARSET "UTF-8";
+
+.logo-text{
+	color:white;
+}
+
+.login-text{
+    color: white;
+    font-size: initial;
+    font-style: oblique;
+    margin-top: 20px;
+}
+.background{
+	background-image: url(/i/eg_bg_04.gif);
+}
