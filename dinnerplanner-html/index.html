@@ -6,42 +6,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Dinner planner</title>
 
-    <!-- own css-->
- 	<link rel="stylesheet" href="css/style.css">
-    <!--  end own css-->
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
-
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
   </head>
   <body>
-  	<%
-
-
-	This is the changessss!
-
-  	%>
-	<div class="container">
-		<h1>Dinner planner</h1>
-		<div id="exampleView">
-			<div>
-				Number of guests: <span id="numberOfGuests"></span>
-			</div>
-			<div>
-          <button id="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
-				<button id="plusGuest" class="btn"><span class="glyphicon glyphicon-plus"></span></button>
-			</div>
-		</div>
-	</div>
+<div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container"> 
+      <div class="navbar-header">
+          <h3 class="logo-text">Dinner Planner     </h3>
+          <h4> </h4>
+    </div>
+  </div>
+</div>
+  
+<div class="container-fluid main" >
+  <div class="row">
+    <div class="col-lg-12 backg">
+      <div class="hero-unit index-logo">
+          <h1>A Home Dinner Service</h1>
+          <hr />
+         <p>Description of home dinner party service</p>
+           <p>
+            <a class="btn  btn-large btn-index-start">
+                Create a new dinner
+             </a>
+         </p>
+      </div>
+    </div>
+  
+  </div>
+</div>
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery.js"></script>
     <!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 
-	<!-- The application JavaScript code -->
-	<script src="js/app.js"></script>
-	<script src="js/model/dinnerModel.js"></script>
-	<script src="js/view/exampleView.js"></script>
-	<script src="js/view/exampleViewController.js"></script>
+  <!-- The application JavaScript code -->
+  <script src="src/js/app.js"></script>
+  <script src="src/js/model/dinnerModel.js"></script>
+  <script src="src/js/view/exampleView.js"></script>
+  <script src="src/js/view/exampleViewController.js"></script>
   </body>
 </html>

@@ -10,6 +10,74 @@
     font-style: oblique;
     margin-top: 20px;
 }
-.background{
-	background-image: url(/i/eg_bg_04.gif);
+
+.backg{
+	background-attachment: fixed;
+    background-color: #645862;
+    background-image: url("../images/index_background.jpg");
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    cursor: default;
+    padding: 180px 0 120px;
+    text-align: center;
+    width: 100%;
+    float: left;
+}
+.index-logo{
+	background: rgba(33, 42, 63, 0.5);
+	width: 500px;
+    height: 200px;
+}
+.btn-index-start{
+	color: #fff;
+    border-color: #2A73B3;
+    color: gainsboro;
+}
+#leftPanel{
+	position: absolute;
+    top: 0;
+    left: 0;
+    width: 260px;
+    height: 100%;
+    background: rgba(81, 80, 90, 0.08);
+    z-index: 100;
+}
+.left-menu-top{
+	margin-top: 22%;
+    margin-left: 4%
+        margin-top: 22%;
+    margin-left: 4%;
+    /* background-blend-mode: initial; */
+    /* border-bottom: beige; */
+    border-bottom-style: dashed;
+    width: 95%;
+}
+.left-menu-bottom{
+	margin-left: 4%
+}
+#exampleView{
+	margin-bottom: 3%;
+	
+}
+.rightPanel-search{
+	margin-top: 5%;
+    margin-left: 20%;
+    background: rgba(81, 80, 90, 0.08);
+    height:118px;
+}
+
+#search-title{
+	padding-left: 10px;
+	padding-top: 1px;
+	border-bottom-style: groove;
+	
+}
+#search-content{
+	padding-left: 9px;
+    padding-top: 5px;
+}
+#dish-type{
+	margin-left: 38%;
 }
