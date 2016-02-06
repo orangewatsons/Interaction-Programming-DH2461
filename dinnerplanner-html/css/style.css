@@ -86,6 +86,60 @@ td{
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
+ul.imgGrid {
+    list-style: none;
+    font-size: 0px;
+    margin-left: -2.5%;
+}
+ul.imgGrid li {
+    display: inline-block;
+    padding: 10px;
+    margin: 0 0 2.5% 2.5%;
+    background: #fff;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    font-size: 1rem;
+    vertical-align: top;
+    box-shadow: 0 0 5px #ddd;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+ul.imgGrid li img {
+    max-width: 100%;
+    height: auto;
+    margin: 0 0 10px;
+}
+ul.imgGrid li h3 {
+    margin: 0 0 5px;
+}
+ul.imgGrid li p {
+    font-size: 1.2em;
+    line-height: 1.5em;
+    color: #999;
+}
+/* class for 4 columns */
+ul.imgGrid.columns-4 li {
+    width: 22.5%;
+}
+ 
+@media (max-width: 480px) {
+    ul.grid-nav li {
+        display: block;
+        margin: 0 0 5px;
+    }
+    ul.grid-nav li a {
+        display: block;
+    }
+    ul.imgGrid {
+        margin-left: 0;
+    }
+    ul.imgGrid li {
+        width: 100% !important;
+        margin: 0 0 20px;
+    }
+}
+
 .login-text{
     color: white;
     font-size: initial;
