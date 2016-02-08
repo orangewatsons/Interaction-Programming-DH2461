@@ -44,6 +44,11 @@
     position: relative;
 }
 
+.col-center{
+    width: 60%;
+    margin: auto;
+}
+
 .col-md-4{
     border: 1px solid black;
     padding-top: 15px;
@@ -88,6 +93,17 @@ td{
     margin-left: 20px;
     margin-top: 20px; 
     width: 180px;
+    font-weight: bold;
+}
+
+.confirmBtn_2{
+    float: right; 
+    width: 180px;
+    font-weight: bold;
+}
+.printBtn{
+    width: 180px;
+    margin: 0 auto;
     font-weight: bold;
 }
 
