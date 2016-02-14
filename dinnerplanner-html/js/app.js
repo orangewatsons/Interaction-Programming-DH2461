@@ -3,6 +3,18 @@ $(function() {
 	var model = new DinnerModel();
 	
 	//And create the needed controllers and views
-	var exampleView = new ExampleView($("#exampleView"));
+	var exampleView = new ExampleView($("#exampleView"), model);
+
+	var homeView = new HomeView($('#homeView'), model);
+	var homeController = new HomeController(homeView, model);
+
+	var dishListView = new DishListView($('#dishListView'), model);
+	var dishListController = new DishListController(dishListView, model);
+
+	var dinnerView = new DinnerView($('#dinnerView'), model);
+	var dinnerController = new DinnerController(dinnerView, model);
+
+	var dishView = new DishView($('#dishView'), model);
+	var dishController = new DishController(dishView, model);
 
 });

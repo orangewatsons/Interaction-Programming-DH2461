@@ -1,11 +1,32 @@
 //DinnerModel Object constructor
 var DinnerModel = function() {
- 
+ 	var observers = [];
+ 	var focusedID = 1;
 	//TODO Lab 2 implement the data structure that will hold number of guest
 	// and selected dinner options for dinner menu
 	var numberOfGuests = 0;
 	var selectedDishes = [];
 
+	//lab3
+	this.addObserver = function(observer){
+		observers.push(observer);
+	}
+	
+	var notifyObservers = function(obj){
+		for(var i=0; i < observers.length ; i++){
+			observers[i].update(obj);
+		}
+	}
+	//lab 3
+
+
+	this.setFocusedID = function(newID){
+		focusedID = newID;
+	}
+	
+	this.getFocusedID = function(){
+		return focusedID;
+	}
 
 	this.setNumberOfGuests = function(num) {
 		//TODO Lab 2
