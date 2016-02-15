@@ -17,4 +17,10 @@ $(function() {
 	var dishView = new DishView($('#dishView'), model);
 	var dishController = new DishController(dishView, model);
 
+	var dinnerOverviewView = new DinnerOverviewView($('#dinnerOverviewView'), model);
+	var dinnerOverviewController = new DinnerOverviewController(dinnerOverviewView, model);
+
+	var instructionsView = new InstructionsView($('#instructionsView'), model);
+	var instructionsController = new InstructionsController(instructionsView, model);
+
 });
