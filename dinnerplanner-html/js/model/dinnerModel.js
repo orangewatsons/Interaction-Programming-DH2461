@@ -12,13 +12,11 @@ var DinnerModel = function() {
 		observers.push(observer);
 	}
 	
-	var notifyObservers = function(obj){
+	this.notifyObservers = function(obj){
 		for(var i=0; i < observers.length ; i++){
 			observers[i].update(obj);
 		}
 	}
-	//lab 3
-
 
 	this.setFocusedID = function(newID){
 		focusedID = newID;

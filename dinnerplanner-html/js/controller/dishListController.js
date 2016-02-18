@@ -1,7 +1,8 @@
 var DishListController = function(view, model){
 	
-	view.searchBtn.click(function(e){
-		
+	view.searchBtn.click(function(){
+		model.notifyObservers();
+		view.loadSelection();
 	});
 
 	var displayDish = function(){
@@ -15,10 +16,17 @@ var DishListController = function(view, model){
 			var img = images[i];
 			img.onclick = function(){
 				//var x=images[i].getAttributeNode("id").value;
-				//model.setFocusedID(x); this will be solved for lab3
+				model.setFocusedID(this.id);
+				model.notifyObservers();
 				displayDish();
 			};
 		}
 	};
 	loadDish();
+
+	this.update = function(){
+		loadDish();
+	}
+
+	model.addObserver(this);
 }
