@@ -29,7 +29,7 @@
          <p style="text-align:left;margin-left:20px;margin-right:20px">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ut erat et quam efficitur feugiat eu id libero. Suspendisse a varius mi. Morbi dictum bibendum tellus, sed pulvinar lectus gravida eget. Vivamus pulvinar ligula odio, vel porttitor urna malesuada non.</p>
          <p>start quickly</p>
            <p>
-            <button class="btn btn-default" id="btnCreate"><b>Create new dinner</b></button>
+            <button class="btn btn-default" id="btnCreate" a href="selectDish"><b>Create new dinner</b></button>
          </p>
       </div>
     </div>
@@ -37,6 +37,7 @@
   </div>
 </div>
 </div>
+
 <!-- home page ends here-->
 
 <div id="dinnerView">
@@ -61,9 +62,9 @@
         <form>
             <table class="form-group">
                 <tr><th style="background-color:transparent;border:0px;width:50%;"><input type="search" id="searchQuery" placeholder="Enter key words" class="form-control">
-                    <button class="btn" id="searchBtn"><b>Search</b></button></th>
+                    <input type="button" class="btn" id="searchBtn"  value="search"></button></th>
                     <th style="background-color:transparent;border:0px;text-align:left;">
-                        <select class="form-control" id="dishType">
+                        <select class="form-control"  id="dishType" >
                             <option>starter</option>
                             <option>main dish</option>
                             <option>dessert</option>
@@ -187,5 +188,22 @@
   <script src="js/controller/dinnerOverviewController.js"></script>
   <script src="js/view/instructionsView.js"></script>
   <script src="js/controller/instructionsController.js"></script>
+  <!-- 
+  <script>
+  function searchSubmit(){
+	  searchQuery=document.getElementById("searchQuery").value;
+	  dishType=document.getElementById("dishType").value;
+	  
+	  
+	  //alert(1);
+	  
+	  alert(dishType);
+	  alert(searchQuery);
+	  loadSelection();
+	  
+  }
+  
+  </script>
+  -->
   </body>
 </html>

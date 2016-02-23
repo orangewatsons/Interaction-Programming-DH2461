@@ -6,8 +6,13 @@ var DishListView = function(container, model){
 	
 	this.dishList = document.getElementById("dishList");
 
-	var loadSelection = function(){
-		var result = model.getAllDishes(dishType.value, searchQuery.value);
+	//var loadSelection = function(){
+		
+	function loadSelection(){
+		var searchQuery=document.getElementById("searchQuery").value;
+		var dishType=document.getElementById("dishType").value;
+		
+		var result = model.getAllDishes(dishType, searchQuery);
 	
 		for(var i=0; i<result.length; i++){
 			var imgList = document.createElement("li");
