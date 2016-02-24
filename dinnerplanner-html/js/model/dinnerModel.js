@@ -13,6 +13,7 @@ var DinnerModel = function() {
 	}
 	
 	this.notifyObservers = function(obj){
+		//alert("model");
 		for(var i=0; i < observers.length ; i++){
 			observers[i].update(obj);
 		}
@@ -126,9 +127,11 @@ var DinnerModel = function() {
 	//you can use the filter argument to filter out the dish by name or ingredient (use for search)
 	//if you don't pass any filter all the dishes will be returned
 	this.getAllDishes = function (type,filter) {
+	//alert("filter"+filter);
+	//alert("type"+type);
 	  return $(dishes).filter(function(index,dish) {
 		var found = true;
-		if(filter){
+		if(filter!=""){
 			found = false;
 			$.each(dish.ingredients,function(index,ingredient) {
 				if(ingredient.name.indexOf(filter)!=-1) {

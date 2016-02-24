@@ -2,7 +2,7 @@ var DishListController = function(view, model){
 	
 	view.searchBtn.click(function(){
 		model.notifyObservers();
-		loadSelection();
+		view.loadSelection();
 		
 	});
 
