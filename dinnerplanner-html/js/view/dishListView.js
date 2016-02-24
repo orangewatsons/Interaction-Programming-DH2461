@@ -6,12 +6,8 @@ var DishListView = function(container, model){
 	
 	this.dishList = document.getElementById("dishList");
 	
-	//model.getAllDishes("starter","s");
-	//var loadSelection = function(){
-		
 	this.loadSelection =function (){
-		//alert("dishView");
-		//dishList="";
+
 		dishList.innerHTML="";
 		var searchQuery=document.getElementById("searchQuery").value;
 		var dishType=document.getElementById("dishType").value;
@@ -37,7 +33,7 @@ var DishListView = function(container, model){
 		}
 	}
 	
-	loadSelection();
+	this.loadSelection();
 
 	this.update = function(){
 		//loadSelection();
