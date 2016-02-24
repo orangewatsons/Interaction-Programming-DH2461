@@ -12,9 +12,9 @@ var DinnerModel = function() {
 		observers.push(observer);
 	}
 	
-	this.notifyObservers = function(obj){
+	this.notifyObservers = function(){
 		for(var i=0; i < observers.length ; i++){
-			observers[i].update(obj);
+			observers[i].update();
 		}
 	}
 
@@ -29,6 +29,7 @@ var DinnerModel = function() {
 	this.setNumberOfGuests = function(num) {
 		//TODO Lab 2
 		numberOfGuests = num;
+		this.notifyObservers();
 	}
 
 	// should return 
@@ -68,9 +69,9 @@ var DinnerModel = function() {
 		var j;
 
 		for(var i=0; i<selectedDishes.length; i++){
-			if(typeof menu[i] != 'undefined'){
+			if(typeof selectedDishes[i] != 'undefined'){
 				for(j in dishes){
-					if(menu[i] === dishes[j].name){
+					if(selectedDishes[i] === dishes[j].name){
 						allIngredients[allIngredients.length] = dishes[j].ingredients;
 					}
 				}
@@ -110,6 +111,7 @@ var DinnerModel = function() {
 			default:
 				break;
 		}
+		this.notifyObservers();
 	}
 
 	//Removes dish from menu
@@ -120,6 +122,7 @@ var DinnerModel = function() {
 				delete selectedDishes[i];
 			}
 		}
+		this.notifyObservers();
 	}
 
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
@@ -151,6 +154,25 @@ var DinnerModel = function() {
 				return dishes[key];
 			}
 		}
+	}
+
+	this.getDishCost = function(id){
+		var totalCost = 0;
+		var dish = this.getDish(id);
+
+		for(var i=0; i<dish.ingredients.length; i++){
+			totalCost += (dish.ingredients[i].price * numberOfGuests);
+		}
+		return totalCost;
+	}
+
+	this.getSelectedDishCost = function(position){
+		var totalCost = 0;
+
+		for(var i=0; i<selectedDishes[position].ingredients.length; i++){
+			totalCost += (selectedDishes[position].ingredients[i].price * numberOfGuests);
+		}
+		return totalCost;
 	}
 
 

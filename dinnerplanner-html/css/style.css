@@ -45,7 +45,7 @@
 }
 
 .col-center{
-    width: 60%;
+    width: 75%;
     margin: auto;
 }
 
@@ -116,32 +116,6 @@ td{
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
-/*div.imgGrid{
-    display: inline-block;
-}
-
-div.imgGrid img{
-    padding: 10px;
-    margin: 2.5% 0 2.5% 2.5%;
-    background: #fff;
-    border: 1px solid #ddd;
-    font-size: 16px;
-    font-size: 1rem;
-    vertical-align: top;
-    box-shadow: 0 0 5px #ddd;
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    position: relative;
-    cursor: pointer;
-}
-
-div.imgGrid h4{
-    display: block;
-}*/
-
-
-/* old styles for former html */
 ul.imgGrid {
     list-style: none;
     font-size: 0px;
@@ -196,7 +170,6 @@ ul.imgGrid.columns-4 li {
         margin: 0 0 20px;
     }
 }
-/* old styles for former html */
 
 .login-text{
     color: white;

@@ -1,9 +1,15 @@
 var DishListController = function(view, model){
 	
-	view.searchBtn.click(function(){
-		model.notifyObservers();
-		view.loadSelection();
-	});
+	view.searchBtn.onclick = function(){
+		view.update();
+		loadDish();
+	};
+
+	/*function startAjax(){
+		$.ajax({
+			
+		});
+	};*/
 
 	var displayDish = function(){
 		document.getElementById('dishListView').style.display = 'none'
@@ -15,18 +21,18 @@ var DishListController = function(view, model){
 		for(var i=0; i<images.length; i++){
 			var img = images[i];
 			img.onclick = function(){
-				//var x=images[i].getAttributeNode("id").value;
 				model.setFocusedID(this.id);
 				model.notifyObservers();
 				displayDish();
 			};
 		}
 	};
-	loadDish();
 
 	this.update = function(){
 		loadDish();
 	}
+
+	loadDish();
 
 	model.addObserver(this);
 }

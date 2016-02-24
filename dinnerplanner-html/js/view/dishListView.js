@@ -7,6 +7,8 @@ var DishListView = function(container, model){
 	this.dishList = document.getElementById("dishList");
 
 	var loadSelection = function(){
+		dishList.innerHTML = "";
+
 		var result = model.getAllDishes(dishType.value, searchQuery.value);
 	
 		for(var i=0; i<result.length; i++){
@@ -19,20 +21,17 @@ var DishListView = function(container, model){
 			var dishTitle = document.createElement("h5");
 			dishTitle.innerHTML = result[i].name; 
 
-			/*var dishDescr = document.createElement("p");
-			dishDescr.innerHTML = result[i].description;*/
-
 			imgList.appendChild(dishImg);
 			imgList.appendChild(dishTitle);
 			dishList.appendChild(imgList);
 		}
-	}
-	
-	loadSelection();
+	};
 
 	this.update = function(){
-		//loadSelection();
+		loadSelection();
 	}
+
+	loadSelection();
 
 	model.addObserver(this);
 };

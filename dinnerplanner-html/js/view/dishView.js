@@ -15,6 +15,11 @@ var DishView = function(container, model){
 		dishImg.src = "images/" + model.getDish(model.getFocusedID()).image;
 		dishDescr.innerHTML = model.getDish(model.getFocusedID()).description;
 		numberOfGuests.innerHTML = model.getNumberOfGuests();
+		totalCost.innerHTML = model.getDishCost(model.getFocusedID());
+
+		while (ingredientsTable.rows.length > 0){
+			ingredientsTable.deleteRow(0);
+		}
 
 		for(var i=0; i<model.getDish(model.getFocusedID()).ingredients.length; i++){
 			var row = ingredientsTable.insertRow(-1);
@@ -28,4 +33,10 @@ var DishView = function(container, model){
 		}
 	}
 	loadDishInfo();
+
+	this.update = function(){
+		loadDishInfo();
+	}
+
+	model.addObserver(this);
 }
