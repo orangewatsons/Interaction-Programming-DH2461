@@ -109,6 +109,12 @@ var DinnerModel = function() {
 			default:
 				break;
 		}
+		//var m=$('#numOfGuests').val();
+		//alert(1);
+		//alert($('#confirmDinner').attr('disabled'));
+		$('#confirmDinner').attr('disabled', false);
+		//alert($('#confirmDinner').attr('disabled'));
+		
 		this.notifyObservers();
 	}
 
