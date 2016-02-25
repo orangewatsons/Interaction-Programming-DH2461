@@ -5,11 +5,14 @@ var DishListView = function(container, model){
 	this.dishType = container.find("#dishType");
 	
 	this.dishList = document.getElementById("dishList");
+	
+	this.loadSelection = function(){
 
-	var loadSelection = function(){
-		dishList.innerHTML = "";
-
-		var result = model.getAllDishes(dishType.value, searchQuery.value);
+		dishList.innerHTML="";
+		var searchQuery=document.getElementById("searchQuery").value;
+		var dishType=document.getElementById("dishType").value;
+		
+		var result = model.getAllDishes(dishType, searchQuery);
 	
 		for(var i=0; i<result.length; i++){
 			var imgList = document.createElement("li");
@@ -26,12 +29,12 @@ var DishListView = function(container, model){
 			dishList.appendChild(imgList);
 		}
 	};
+	
+	this.loadSelection();
 
 	this.update = function(){
-		loadSelection();
+		this.loadSelection();
 	}
-
-	loadSelection();
 
 	model.addObserver(this);
 };

@@ -11,7 +11,6 @@ var DinnerController = function(view, model){
 	}
 
 	view.confirmDinner.onclick = function(){
-		alert(model.getFullMenu()[0].name);
 		displayOverview();
 	};
 
