@@ -2,45 +2,40 @@ var DinnerOverviewView = function(container, model){
 	
 	this.goBackBtn = document.getElementById('goBackBtn');
 	this.recipeBtn = document.getElementById('recipeBtn');
-	this.numberOfGuests = document.getElementById('numberOfGuests');
+	this.numberOfGuests2 = document.getElementById('numberOfGuests');
 
-	this.starterImg = container.find("#starterImg");
-	this.starterName = container.find("#starterName");
-	this.starterCost = container.find("#starterCost");
-	
-	this.mainDishImg = container.find("#mainDishImg");
-	this.mainDishName = container.find("#mainDishName");
-	this.mainDishCost = container.find("#mainDishCost");
-	
-	this.dessertImg = container.find("#dessertImg");
-	this.dessertName = container.find("#dessertName");
-	this.dessertCost = container.find("#dessertCost");
+	this.overview = document.getElementById('overview');
 	
 	this.totalCost = container.find("#totalCost");
 	
-	var menu = model.getFullMenu();
-	
 
 	var loadOverview = function(){
-		//alert(menu.length);
 
-		numberOfGuests.innerHTML = model.getNumberOfGuests();
+		numberOfGuests2.innerHTML = model.getNumberOfGuests();
+
+		var menu = model.getFullMenu();
+		overview.innerHTML = "";
 
 		if (menu != undefined && menu.length != 0) {
+			for(var i=0; i<menu.length; i++){
+				var imgList = document.createElement("li");
 
-			starterImg.src = "images/" + menu[0].image;
-			starterName.innerHTML = menu[0].name;
-			starterCost.innerHTML = model.getSelectedDishCost(0);
+				var dishImg = document.createElement("img");
+				dishImg.setAttribute('id', menu[i].id);
+				dishImg.src = "images/" + menu[i].image;
 
-			mainDishImg.src = "images/" + menu[1].image;
-			mainDishName.innerHTML = menu[1].name;
-			mainDishCost.innerHTML = model.getSelectedDishCost(1);
+				var dishTitle = document.createElement("h5");
+				dishTitle.innerHTML = menu[i].name;
 
-			dessertImg.src = "images/" + menu[2].image;
-			dessertName.innerHTML = menu[2].name;
-			dessertCost.innerHTML = model.getSelectedDishCost(2);		
+				var dishCost = document.createElement("p");
+				dishCost.innerHTML = "SEK " + model.getSelectedDishCost(i); 
 
-			totalCost.html(model.getTotalMenuPrice());
+				imgList.appendChild(dishImg);
+				imgList.appendChild(dishTitle);
+				imgList.appendChild(dishCost);
+				overview.appendChild(imgList);
+			}
+			totalCost.innerHTML = "SEK " + model.getTotalMenuPrice();
 		}
 	}
 

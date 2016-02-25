@@ -4,7 +4,7 @@ var DinnerModel = function() {
  	var focusedID = 1;
 	//TODO Lab 2 implement the data structure that will hold number of guest
 	// and selected dinner options for dinner menu
-	var numberOfGuests = 0;
+	var numberOfGuests = 1;
 	var selectedDishes = [];
 
 	//lab3
@@ -68,12 +68,10 @@ var DinnerModel = function() {
 		var allIngredients = [];
 		var j;
 
-		for(var i=0; i<selectedDishes.length; i++){
-			if(typeof selectedDishes[i] != 'undefined'){
-				for(j in dishes){
-					if(selectedDishes[i] === dishes[j].name){
-						allIngredients[allIngredients.length] = dishes[j].ingredients;
-					}
+		if(selectedDishes != undefined && selectedDishes.length != 0){
+			for(var i=0; i<selectedDishes.length; i++){
+				for(var j=0; j<selectedDishes[i].ingredients.length; j++){
+					allIngredients[allIngredients.length] = selectedDishes[i].ingredients[j];
 				}
 			}
 		}
@@ -87,7 +85,7 @@ var DinnerModel = function() {
 		var allIngredients = this.getAllIngredients();
 
 		for(var i in allIngredients){
-			(total += allIngredients[i].price) * numberOfGuests;
+			total += (allIngredients[i].price * numberOfGuests);
 		}
 
 		return total;

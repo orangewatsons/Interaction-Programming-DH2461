@@ -6,12 +6,14 @@ var DinnerController = function(view, model){
 		document.getElementById('dishView').style.display = 'none';
 
 		document.getElementById('dinnerOverviewView').style.display = 'block';
-
-		//model.setNumberOfGuests(view.numOfGuests.value);
 	}
 
 	view.confirmDinner.onclick = function(){
 		displayOverview();
+	};
+
+	view.numOfGuests.oninput = function(){
+		model.setNumberOfGuests(view.numOfGuests.value);
 	};
 
 }

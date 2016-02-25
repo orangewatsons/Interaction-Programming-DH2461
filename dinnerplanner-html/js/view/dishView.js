@@ -5,17 +5,17 @@ var DishView = function(container, model){
 	this.dishImg = document.getElementById('dishImg');
 	this.dishDescr = document.getElementById('dishDescr');
 
-	this.numberOfGuests = document.getElementById('numberOfGuests');
+	this.numberOfGuests1 = document.getElementById('numberOfGuests');
 	this.ingredientsTable = document.getElementById('ingredientsTable');
-	this.totalCost = document.getElementById('totalCost');
+	this.ingredientsCost = document.getElementById('ingredientsCost');
 	this.confirmBtn = document.getElementById('confirmBtn');
 
 	var loadDishInfo = function(){
 		dishName.innerHTML = model.getDish(model.getFocusedID()).name;
 		dishImg.src = "images/" + model.getDish(model.getFocusedID()).image;
 		dishDescr.innerHTML = model.getDish(model.getFocusedID()).description;
-		numberOfGuests.innerHTML = model.getNumberOfGuests();
-		totalCost.innerHTML = model.getDishCost(model.getFocusedID());
+		numberOfGuests1.innerHTML = model.getNumberOfGuests();
+		ingredientsCost.innerHTML = model.getDishCost(model.getFocusedID());
 
 		while (ingredientsTable.rows.length > 0){
 			ingredientsTable.deleteRow(0);

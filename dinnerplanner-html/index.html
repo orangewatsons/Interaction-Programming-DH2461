@@ -61,7 +61,7 @@
         <form>
             <table class="form-group">
                 <tr><th style="background-color:transparent;border:0px;width:50%;"><input type="search" id="searchQuery" placeholder="Enter key words" class="form-control">
-                    <input type="button" class="btn" id="searchBtn"  value="search"></button></th>
+                    <input type="button" class="btn" id="searchBtn" style="font-weight:bold;" value="search"></button></th>
                     <th style="background-color:transparent;border:0px;text-align:left;">
                         <select class="form-control"  id="dishType" >
                         	
@@ -77,9 +77,7 @@
 <!-- end of search div -->
 
     <div class="col-2-3 imgGrid" style="background-color:transparent;">
-        <ul class="imgGrid columns-4" id="dishList">
-
-        </ul>
+        <ul class="imgGrid columns-4" id="dishList"></ul>
     </div>
 </div>
 
@@ -91,7 +89,7 @@
         <img id="dishImg" style="display:block;" src=""/>
 
         <div class="col-md-4" style="background-color:#CC9966;">
-          <h5>Ingredients for <span id="numberOfGuests"></span> people</h5>
+          <h5>Ingredients for <span id="numberOfGuests1"></span> people</h5>
           <hr>
           <table id="ingredientsTable">
             <tr>
@@ -104,7 +102,7 @@
           <table>
             <tr>
               <td style="border-bottom:transparent;"><button id="confirmBtn" class="confirmBtn btn" style="margin-bottom:15px;margin-top:15px;">Confirm Dish</button></td>
-              <td style="text-align:right;border-bottom:transparent;">SEK</td><td style="border-bottom:transparent;"><span id="totalCost"></span></td>
+              <td style="text-align:right;border-bottom:transparent;">SEK</td><td style="border-bottom:transparent;"><span id="ingredientsCost"></span></td>
             </tr>
           </table>
         </div>
@@ -119,51 +117,28 @@
 <!-- end of single dish view -->
 
 <div id="dinnerOverviewView">
-  <div class="col-2-3" style="width:100%;">
-        <h4>My Dinner: <span id="numberOfGuests"></span> people <button class="confirmBtn_2 btn" id="goBackBtn">Go back and edit dinner</button></h4>
+    <div class="col-2-3" style="width:100%;">
+        <h4>My Dinner: <span id="numberOfGuests2"></span> people <button class="confirmBtn_2 btn" id="goBackBtn">Go back and edit dinner</button></h4>
     </div>
 
     <div class="col-2-3" style="background-color:transparent;width:100%;">
-        <div class="col-center"><ul class="imgGrid columns-4">
-            <li>
-                <img src="" id="starterImg" />
-                <h3 id="starterName"></h3>
-                <p id="starterCost"></p>
-            </li>
-            <li>
-                <img src="" id="mainDishImg" />
-                <h3 id="mainDishName"></h3>
-                <p id="mainDishCost"></p>
-            </li>
-            <li>
-                <img src="" id="dessertImg" />
-                <h3 id="dessertName"></h3>
-                <p id="dessertCost"></p>
-            </li>
-        </ul>
-      <p>Total: <strong><span id="totalCost"></span></strong></p></div>
-
-        <hr>
-        <button class="printBtn btn" style="display:block;" id="recipeBtn">Print Full Recipe</button>
+        <div class="col-center">
+          <ul class="imgGrid columns-4" id="overview"></ul>
+          <p>Total: <strong><span id="totalCost"></span></strong></p></div>
+          <hr>
+          <button class="printBtn btn" style="display:block;" id="recipeBtn">Print Full Recipe</button>
+        </div>
     </div>
-</div>
 
 <!-- end of dinner overview -->
 
 <div id="instructionsView">
     <div class="col-2-3" style="width:100%;">
-        <h4>My Dinner: <span id="numberOfGuests"></span> people <button class="confirmBtn_2 btn" id="goBackBtn2">Go back and edit dinner</button></h4>
+        <h4>My Dinner: <span id="numberOfGuests3"></span> people <button class="confirmBtn_2 btn" id="goBackBtn2">Go back and edit dinner</button></h4>
     </div>
 
     <div>
-        <table>
-            <tr><td><img src="images/toast.jpg"/></td><td><h4>French toast</h4></td>
-                <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse accumsan nec metus eu ullamcorper. Fusce id quam aliquam, cursus justo sit amet, varius metus. Nunc dignissim est at nisl lobortis, ac accumsan odio condimentum. Maecenas vitae mi ac sapien aliquet vulputate. Sed pharetra sagittis metus, ac pretium enim condimentum sed. Aenean ornare est vitae eros suscipit tincidunt. In laoreet, urna non pharetra posuere, purus orci elementum lacus, non egestas nulla tortor eget est.</td></tr>
-                <tr><td><img src="images/meatballs.jpg"/></td><td><h4>Meatballs</h4></td>
-                <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse accumsan nec metus eu ullamcorper. Fusce id quam aliquam, cursus justo sit amet, varius metus. Nunc dignissim est at nisl lobortis, ac accumsan odio condimentum. Maecenas vitae mi ac sapien aliquet vulputate. Sed pharetra sagittis metus, ac pretium enim condimentum sed. Aenean ornare est vitae eros suscipit tincidunt. In laoreet, urna non pharetra posuere, purus orci elementum lacus, non egestas nulla tortor eget est.</td></tr>
-                <tr><td><img src="images/icecream.jpg"/></td><td><h4>Icecream</h4></td>
-                <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse accumsan nec metus eu ullamcorper. Fusce id quam aliquam, cursus justo sit amet, varius metus. Nunc dignissim est at nisl lobortis, ac accumsan odio condimentum. Maecenas vitae mi ac sapien aliquet vulputate. Sed pharetra sagittis metus, ac pretium enim condimentum sed. Aenean ornare est vitae eros suscipit tincidunt. In laoreet, urna non pharetra posuere, purus orci elementum lacus, non egestas nulla tortor eget est.</td></tr>
-        </table>
+        <table id="recipeTable"></table>
     </div>
 </div>
 

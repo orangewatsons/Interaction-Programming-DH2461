@@ -18,7 +18,6 @@ var DinnerView = function(container, model){
 			cell1.innerHTML = model.getFullMenu()[i].name;
 			cell2.innerHTML = model.getSelectedDishCost(i);			
 		}
-		//numOfGuests.value = model.getNumberOfGuests();
 		dinnerCost.innerHTML = model.getTotalMenuPrice();
 	};
 
