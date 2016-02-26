@@ -5,7 +5,7 @@ var DishListController = function(view, model){
 		document.getElementById('dishView').style.display = 'block'
 	};
 
-	this.loadDish = function(){
+	function loadDish(){
 		var images = view.dishList.getElementsByTagName("img");
 		for(var i=0; i<images.length; i++){
 			var img = images[i];
@@ -17,16 +17,15 @@ var DishListController = function(view, model){
 		}
 	};
 
-	this.loadDish();
+	loadDish();
 	
 	this.update = function(){
-		this.loadDish();
+		loadDish();
 	}
 
 	view.searchBtn.click(function(){
-		alert("searchBtn");
 		view.loadSelection();
-		update();
+		loadDish();
 	});
 
 	model.addObserver(this);

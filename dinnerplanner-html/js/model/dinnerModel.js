@@ -109,6 +109,7 @@ var DinnerModel = function() {
 			default:
 				break;
 		}
+		$('#confirmDinner').attr('disabled', false);
 		this.notifyObservers();
 	}
 
