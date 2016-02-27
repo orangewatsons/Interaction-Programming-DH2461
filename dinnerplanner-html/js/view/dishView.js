@@ -29,7 +29,7 @@ var DishView = function(container, model){
 		 
 			cell0.innerHTML = model.getDish(model.getFocusedID()).ingredients[i].quantity + model.getDish(model.getFocusedID()).ingredients[i].unit;
 			cell1.innerHTML = model.getDish(model.getFocusedID()).ingredients[i].name;
-			cell2.innerHTML = model.getDish(model.getFocusedID()).ingredients[i].price;
+			cell2.innerHTML = model.getDish(model.getFocusedID()).ingredients[i].price * model.getNumberOfGuests();
 		}
 	}
 	loadDishInfo();

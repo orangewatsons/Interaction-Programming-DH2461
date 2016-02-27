@@ -111,18 +111,19 @@ var DinnerModel = function() {
 		}
 
 		$('#confirmDinner').attr('disabled', false);
-		
+
 		this.notifyObservers();
 	}
 
 	//Removes dish from menu
 	this.removeDishFromMenu = function(id) {
 		//TODO Lab 2
-		for(var i=0; i<selectedDishes.length; i++){
+		delete selectedDishes[id];
+		/*for(var i=0; i<selectedDishes.length; i++){
 			if(selectedDishes[i].id === id){
 				delete selectedDishes[i];
 			}
-		}
+		}*/
 		this.notifyObservers();
 	}
 

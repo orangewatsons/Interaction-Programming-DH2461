@@ -3,6 +3,8 @@ var DishListController = function(view, model){
 	var displayDish = function(){
 		document.getElementById('dishListView').style.display = 'none'
 		document.getElementById('dishView').style.display = 'block'
+
+		document.getElementById('pending').style.display = 'block';
 	};
 
 	function loadDish(){

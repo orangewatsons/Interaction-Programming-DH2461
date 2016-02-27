@@ -7,12 +7,16 @@ var DishController = function(view, model){
 
 	view.backBtn.onclick = function(){
 		backToSelectDish();
+
+		document.getElementById('pending').style.display = 'none';
 	}
 
 	view.confirmBtn.onclick = function(){
 		model.addDishToMenu(model.getFocusedID());
 		document.getElementById('dishListView').style.display = 'none';
 		document.getElementById('dishView').style.display = 'block';
+
+		document.getElementById('pending').style.display = 'none';
 	}
 
 }
