@@ -179,6 +179,54 @@ var DinnerModel = function() {
 		return totalCost;
 	}
 
+	this.getNewDishes = function(keyword, category){
+		var apiKey = "18f3cT02U9f6yRl3OKDpP8NA537kxYKu";
+        var url = "http://api.bigoven.com/recipes?pg=1&rpp=10&any_kw="
+                  + keyword 
+                  + "&category=" + category + "&api_key="+apiKey;
+        $.ajax({
+            type: "GET",
+            dataType: 'json',
+            cache: false,
+            url: url,
+            success: function (data) {
+  			
+                for(var i in data.Results){
+                	//console.log(data.Results[i]);
+
+                	var imgList = document.createElement("li");
+
+                	var dishImg = document.createElement("img");
+                	dishImg.setAttribute('id', data.Results[i].RecipeID);
+                	dishImg.src = data.Results[i].ImageURL120;
+
+					var dishTitle = document.createElement("h5");
+					dishTitle.innerHTML = data.Results[i].Title;
+
+                	imgList.appendChild(dishImg);
+					imgList.appendChild(dishTitle);
+                	$("#dishList").append(imgList);
+                }
+               	//this.notifyObservers(keyword, category);
+            }
+        });
+	}
+
+	this.getRecipe = function(ID){
+		var apiKey = "18f3cT02U9f6yRl3OKDpP8NA537kxYKu";
+        var url = "http://api.bigoven.com/recipes/"
+                  + ID + "&api_key="+apiKey;
+        $.ajax({
+            type: "GET",
+            dataType: 'json',
+            cache: false,
+            url: url,
+            success: function (data) {
+  				console.log(data.Results);
+            }
+        });
+	}
+
 
 	// the dishes variable contains an array of all the 
 	// dishes in the database. each dish has id, name, type,

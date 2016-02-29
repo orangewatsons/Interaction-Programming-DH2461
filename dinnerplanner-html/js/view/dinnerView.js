@@ -16,7 +16,7 @@ var DinnerView = function(container, model){
 			var cell2 = row.insertCell(1);
 		
 			cell1.innerHTML = model.getFullMenu()[i].name;
-			cell2.innerHTML = model.getSelectedDishCost(i) + "<img src='images/circle-close.png' id='closeBtn" + [i] + "'>";		
+			cell2.innerHTML = model.getSelectedDishCost(i) + "<img style='cursor:pointer;' src='images/circle-close.png' id='closeBtn" + [i] + "'>";		
 		}
 		dinnerCost.innerHTML = model.getTotalMenuPrice();
 	};
