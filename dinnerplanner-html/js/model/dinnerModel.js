@@ -181,7 +181,7 @@ var DinnerModel = function() {
 	}
 
 	this.getNewDishes = function(keyword, category){
-		var apiKey = "H9n1zb6es492fj87OxDtZM9s5sb29rW3";
+		var apiKey = "18f3cT02U9f6yRl3OKDpP8NA537kxYKu";
         var url = "http://api.bigoven.com/recipes?pg=1&rpp=10&any_kw="
                   + keyword 
                   + "&category=" + category + "&api_key="+apiKey;
@@ -214,7 +214,7 @@ var DinnerModel = function() {
 	}
 
 	this.getRecipe = function(ID){
-		var apiKey = "H9n1zb6es492fj87OxDtZM9s5sb29rW3";
+		var apiKey = "18f3cT02U9f6yRl3OKDpP8NA537kxYKu";
         var url = "http://api.bigoven.com/recipe/"
                   + ID + "?api_key="+apiKey+ "&pg=1&rpp=10";
         $.ajax({
