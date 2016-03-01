@@ -7,27 +7,41 @@ var DishListController = function(view, model){
 		document.getElementById('pending').style.display = 'block';
 	};
 
-	function loadDish(){
+	/*function loadDish(){
 		var images = view.dishList.getElementsByTagName("img");
 		for(var i=0; i<images.length; i++){
 			var img = images[i];
 			img.onclick = function(){
+				alert(1);
 				model.setFocusedID(this.id);
 				model.notifyObservers();
-				displayDish();
+				//displayDish();
+				//model.getRecipe(723582);
 			};
 		}
-	};
+	};*/
 
-	loadDish();
+	//function for big oven data
+	$(document).ready(function(){
+    	$('#dishList').delegate('img', 'click', function (){
+    		var clickedID = $(this).attr('id');
+    		model.setFocusedID(clickedID);
+    		model.notifyObservers();
+    		displayDish();
+		});
+	});
+
+
 	
+	//loadDish();
+
 	this.update = function(){
-		loadDish();
+		model.focusedID;
 	}
 
 	view.searchBtn.click(function(){
 		view.loadSelection();
-		loadDish();
+		//loadDish();
 	});
 
 	model.addObserver(this);

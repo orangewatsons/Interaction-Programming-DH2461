@@ -95,15 +95,16 @@ var DinnerModel = function() {
 	//it is removed from the menu and the new one added.
 	this.addDishToMenu = function(id) {
 		//TODO Lab 2 
-		var newDish = this.getDish(id);
-		switch(newDish.type){
-			case 'starter':
+		//var newDish = this.getDish(id);
+		var newDish = this.getRecipe(id);
+		switch(newDish.Category){
+			case 'Appetizers':
 				selectedDishes[0] = newDish;
 				break;
-			case 'main dish':
+			case 'Main Dish':
 				selectedDishes[1] = newDish;
 				break;
-			case 'dessert':
+			case 'Desserts':
 				selectedDishes[2] = newDish;
 				break;
 			default:
@@ -180,7 +181,7 @@ var DinnerModel = function() {
 	}
 
 	this.getNewDishes = function(keyword, category){
-		var apiKey = "18f3cT02U9f6yRl3OKDpP8NA537kxYKu";
+		var apiKey = "H9n1zb6es492fj87OxDtZM9s5sb29rW3";
         var url = "http://api.bigoven.com/recipes?pg=1&rpp=10&any_kw="
                   + keyword 
                   + "&category=" + category + "&api_key="+apiKey;
@@ -213,16 +214,33 @@ var DinnerModel = function() {
 	}
 
 	this.getRecipe = function(ID){
-		var apiKey = "18f3cT02U9f6yRl3OKDpP8NA537kxYKu";
-        var url = "http://api.bigoven.com/recipes/"
-                  + ID + "&api_key="+apiKey;
+		var apiKey = "H9n1zb6es492fj87OxDtZM9s5sb29rW3";
+        var url = "http://api.bigoven.com/recipe/"
+                  + ID + "?api_key="+apiKey+ "&pg=1&rpp=10";
         $.ajax({
             type: "GET",
             dataType: 'json',
             cache: false,
             url: url,
             success: function (data) {
-  				console.log(data.Results);
+  				console.log(data);
+  				
+  				$("#dishName").html(data.Title);
+  				$("#dishImg").attr("src", data.ImageURL);
+  				$("#dishDescr").html(data.Description);
+
+  				$("#ingredientsTable tr:gt(0)").remove();
+
+				for(var i in data.Ingredients){
+					var row = $('<tr>');
+					row.append($("<td>").text(data.Ingredients[i].Quantity + data.Ingredients[i].Unit));
+					row.append($("<td>").text(data.Ingredients[i].Name));
+					row.append($("<td>").text(numberOfGuests));
+					$("#ingredientsTable").append(row);
+				}
+
+				$("#ingredientsCost").html(data.Ingredients.length * numberOfGuests);		
+
             }
         });
 	}

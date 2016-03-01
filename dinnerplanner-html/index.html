@@ -78,19 +78,25 @@
 
     <div class="col-2-3 imgGrid" style="background-color:transparent;">
         <ul class="imgGrid columns-4" id="dishList"></ul>
-        <div id="newDishes"></div>
     </div>
 </div>
 
 <!-- end of dish list -->
 
 <div id="dishView">
-  <div class="col-2-3" style="background-color:transparent;height:500px;">
-        <h4 id="dishName"></h4>
-        <img id="dishImg" style="display:block;" src=""/>
+  <div class="col-2-3 container-fluid" style="background-color:transparent;">
+        <div class="row">
+          <div class="col-lg-6">
+            <h4 id="dishName"></h4>
+            <img id="dishImg" style="display:block;height:300px;width:300px;" src=""/>
+            <br>
+            <p id="dishDescr"></p>
+            <br>
+            <button id="backBtn" class="confirmBtn btn">back to Select Dish</button>
+          </div>
 
-        <div class="col-md-4" style="background-color:#CC9966;">
-          <h5>Ingredients for <span id="numberOfGuests1"></span> people</h5>
+          <div class="col-lg-6" style="background-color:#CC9966;">
+            <h5>Ingredients for <span id="numberOfGuests1"></span> people</h5>
           <hr>
           <table id="ingredientsTable">
             <tr>
@@ -106,12 +112,9 @@
               <td style="text-align:right;border-bottom:transparent;">SEK</td><td style="border-bottom:transparent;"><span id="ingredientsCost"></span></td>
             </tr>
           </table>
+          </div>
         </div>
-
-        <p id="dishDescr" class="col-md-5"></p>
-        <br>
-        <div style="position:relative;">
-          <button id="backBtn" class="confirmBtn btn" style="margin-bottom:15px;margin-top:15px;margin-left:20px;display:block;position:absolute;top:200px;">back to Select Dish</button></div>
+          
     </div>
 </div>
 
