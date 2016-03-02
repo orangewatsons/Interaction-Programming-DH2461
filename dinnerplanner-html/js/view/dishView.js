@@ -5,16 +5,16 @@ var DishView = function(container, model){
 	this.dishImg = document.getElementById('dishImg');
 	this.dishDescr = document.getElementById('dishDescr');
 
-	this.numberOfGuests1 = document.getElementById('numberOfGuests1');
+	this.numberOfGuests1 = document.getElementById('numberOfGuests');
 	this.ingredientsTable = document.getElementById('ingredientsTable');
 	this.ingredientsCost = document.getElementById('ingredientsCost');
 	this.confirmBtn = document.getElementById('confirmBtn');
 
 	var loadDishInfo = function(){
-		/*dishName.innerHTML = model.getDish(model.getFocusedID()).name;
+		dishName.innerHTML = model.getDish(model.getFocusedID()).name;
 		dishImg.src = "images/" + model.getDish(model.getFocusedID()).image;
 		dishDescr.innerHTML = model.getDish(model.getFocusedID()).description;
-		
+		numberOfGuests1.innerHTML = model.getNumberOfGuests();
 		ingredientsCost.innerHTML = model.getDishCost(model.getFocusedID());
 
 		while (ingredientsTable.rows.length > 0){
@@ -30,9 +30,7 @@ var DishView = function(container, model){
 			cell0.innerHTML = model.getDish(model.getFocusedID()).ingredients[i].quantity + model.getDish(model.getFocusedID()).ingredients[i].unit;
 			cell1.innerHTML = model.getDish(model.getFocusedID()).ingredients[i].name;
 			cell2.innerHTML = model.getDish(model.getFocusedID()).ingredients[i].price * model.getNumberOfGuests();
-		}*/
-		numberOfGuests1.innerHTML = model.getNumberOfGuests();
-		model.getRecipe(model.getFocusedID());
+		}
 	}
 	loadDishInfo();
 

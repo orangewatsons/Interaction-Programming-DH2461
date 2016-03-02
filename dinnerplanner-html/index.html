@@ -65,9 +65,9 @@
                     <th style="background-color:transparent;border:0px;text-align:left;">
                         <select class="form-control"  id="dishType" >
                         	
-                            <option>Appetizers</option>
-                            <option>Main Dish</option>
-                            <option>Desserts</option>
+                            <option>starter</option>
+                            <option>main dish</option>
+                            <option>dessert</option>
                         </select>
                     </th></tr>
             </table>
@@ -84,19 +84,12 @@
 <!-- end of dish list -->
 
 <div id="dishView">
-  <div class="col-2-3 container-fluid" style="background-color:transparent;">
-        <div class="row">
-          <div class="col-lg-6">
-            <h4 id="dishName"></h4>
-            <img id="dishImg" style="display:block;height:300px;width:300px;" src=""/>
-            <br>
-            <p id="dishDescr"></p>
-            <br>
-            <button id="backBtn" class="confirmBtn btn">back to Select Dish</button>
-          </div>
+  <div class="col-2-3" style="background-color:transparent;height:500px;">
+        <h4 id="dishName" style="width:50%"></h4>
+        <img id="dishImg" style="display:block;" src=""/>
 
-          <div class="col-lg-6" style="background-color:#CC9966;">
-            <h5>Ingredients for <span id="numberOfGuests1"></span> people</h5>
+        <div class="col-md-4" style="background-color:#CC9966;">
+          <h5>Ingredients for <span id="numberOfGuests1"></span> people</h5>
           <hr>
           <table id="ingredientsTable">
             <tr>
@@ -112,9 +105,12 @@
               <td style="text-align:right;border-bottom:transparent;">SEK</td><td style="border-bottom:transparent;"><span id="ingredientsCost"></span></td>
             </tr>
           </table>
-          </div>
         </div>
-          
+
+        <p id="dishDescr" class="col-md-5" style="width:50%"></p>
+        <br>
+        <div style="position:relative;">
+          <button id="backBtn" class="confirmBtn btn " style="margin-bottom:15px;margin-top:15px;margin-left:20px;display:block;position:absolute;top:200px;">back to Select Dish</button></div>
     </div>
 </div>
 
