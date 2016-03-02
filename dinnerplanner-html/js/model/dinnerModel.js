@@ -93,17 +93,18 @@ var DinnerModel = function() {
 
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
-	this.addDishToMenu = function(id) {
-		//TODO Lab 2 
-		var newDish = this.getDish(id);
-		switch(newDish.type){
-			case 'starter':
+	/****/
+	//the static one
+	this.addDishToMenuStastic = function(id) {
+		var newDish = this.getRecipe(id);
+		switch(newDish.Category){
+			case 'Appetizers':
 				selectedDishes[0] = newDish;
 				break;
-			case 'main dish':
+			case 'Main Dish':
 				selectedDishes[1] = newDish;
 				break;
-			case 'dessert':
+			case 'Desserts':
 				selectedDishes[2] = newDish;
 				break;
 			default:
@@ -114,6 +115,37 @@ var DinnerModel = function() {
 
 		this.notifyObservers();
 	}
+	
+	this.addDishToMenu= function(id){
+	
+		var cost= document.getElementById("ingredientsCost").innerHTML ;
+		var title=document.getElementById("dishName").innerHTML;
+		
+		
+		
+		//console.log("cost: "+cost);
+		//console.log("title: "+title);
+		
+		if(selectedDishes.length==0||selectedDishes=="undefined"){
+			selectedDishes[0]=[title,cost];
+			//alert(1);
+			//alert(selectedDishes.length)
+			
+		}else if(selectedDishes.length>=1){
+			//alert(2);
+			selectedDishes.push([title,cost]);
+			//alert(selectedDishes.length);
+			
+		}
+		
+		//console.log(selectedDishes);
+		
+		$('#confirmDinner').attr('disabled', false);
+		this.notifyObservers();
+		
+		
+	}
+	
 
 	//Removes dish from menu
 	this.removeDishFromMenu = function(id) {
@@ -159,6 +191,7 @@ var DinnerModel = function() {
 			}
 		}
 	}
+	
 
 	this.getDishCost = function(id){
 		var totalCost = 0;
@@ -170,7 +203,9 @@ var DinnerModel = function() {
 		return totalCost;
 	}
 
-	this.getSelectedDishCost = function(position){
+	/*After the change of using dynamic data, it seems no need to use this function
+	 * because now the cost is a number that stored in the selectedDish array.
+	 */this.getSelectedDishCost = function(position){
 		var totalCost = 0;
 
 		for(var i=0; i<selectedDishes[position].ingredients.length; i++){
@@ -179,10 +214,8 @@ var DinnerModel = function() {
 		return totalCost;
 	}
 
-<<<<<<< HEAD
-=======
 	this.getNewDishes = function(keyword, category){
-		var apiKey = "18f3cT02U9f6yRl3OKDpP8NA537kxYKu";
+		var apiKey = "r02x0R09O76JMCMc4nuM0PJXawUHpBUL";
         var url = "http://api.bigoven.com/recipes?pg=1&rpp=10&any_kw="
                   + keyword 
                   + "&category=" + category + "&api_key="+apiKey;
@@ -215,7 +248,7 @@ var DinnerModel = function() {
 	}
 
 	this.getRecipe = function(ID){
-		var apiKey = "18f3cT02U9f6yRl3OKDpP8NA537kxYKu";
+		var apiKey = "r02x0R09O76JMCMc4nuM0PJXawUHpBUL";
         var url = "http://api.bigoven.com/recipe/"
                   + ID + "?api_key="+apiKey+ "&pg=1&rpp=10";
         $.ajax({
@@ -245,7 +278,7 @@ var DinnerModel = function() {
             }
         });
 	}
-/*
+
 
 	// the dishes variable contains an array of all the 
 	// dishes in the database. each dish has id, name, type,
@@ -496,6 +529,6 @@ var DinnerModel = function() {
 			'price':6
 			}]
 		}
-	];*/
+	];
 
 }

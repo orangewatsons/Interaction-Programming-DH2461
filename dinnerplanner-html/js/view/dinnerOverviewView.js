@@ -28,14 +28,14 @@ var DinnerOverviewView = function(container, model){
 				dishTitle.innerHTML = menu[i].name;
 
 				var dishCost = document.createElement("p");
-				dishCost.innerHTML = "SEK " + model.getSelectedDishCost(i); 
+				dishCost.innerHTML = "SEK " + model.getFullMenu()[i][1]; 
 
 				imgList.appendChild(dishImg);
 				imgList.appendChild(dishTitle);
 				imgList.appendChild(dishCost);
 				overview.appendChild(imgList);
 			}
-			totalCost.innerHTML = "SEK " + model.getTotalMenuPrice();
+			totalCost.innerHTML = "SEK " + document.getElementById("dinnerCost");
 		}
 	}
 

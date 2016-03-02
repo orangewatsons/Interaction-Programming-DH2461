@@ -3,6 +3,7 @@ var DishListView = function(container, model){
 	this.searchQuery = container.find("#searchQuery");
 	this.searchBtn = container.find("#searchBtn");
 	this.dishType = container.find("#dishType");
+	this.newDishes = document.getElementById("newDishes");
 	
 	this.dishList = document.getElementById("dishList");
 	
@@ -12,7 +13,7 @@ var DishListView = function(container, model){
 		var searchQuery=document.getElementById("searchQuery").value;
 		var dishType=document.getElementById("dishType").value;
 		
-		var result = model.getAllDishes(dishType, searchQuery);
+		/*var result = model.getAllDishes(dishType, searchQuery);
 	
 		for(var i=0; i<result.length; i++){
 			var imgList = document.createElement("li");
@@ -27,7 +28,10 @@ var DishListView = function(container, model){
 			imgList.appendChild(dishImg);
 			imgList.appendChild(dishTitle);
 			dishList.appendChild(imgList);
-		}
+		}*/
+
+		//model.getNewDishes("chicken", "Main Dish");
+		model.getNewDishes(searchQuery, dishType);
 	};
 	
 	this.loadSelection();

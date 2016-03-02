@@ -41,21 +41,12 @@
     padding: 20px;
     border-style: hidden hidden solid solid;
     background-color: #CC9966;
-    position: relative;
+    /*position: relative;*/
 }
 
 .col-center{
     width: 75%;
     margin: auto;
-}
-
-.col-md-4{
-    border: 1px solid black;
-    padding-top: 15px;
-    width: 50%;
-    position: absolute;
-    left: 50%;
-    top: 0px;
 }
 
 .col-md-5{
@@ -92,8 +83,7 @@ td{
 .confirmBtn{
     margin-left: 20px;
     margin-top: 20px; 
-    width: 60%;
-    overflow: hidden;
+    width: 180px;
     font-weight: bold;
 }
 
@@ -101,9 +91,6 @@ td{
     float: right; 
     width: 180px;
     font-weight: bold;
-}
-#backBtn{
-    width:30%;
 }
 .printBtn{
     width: 180px;
@@ -253,7 +240,4 @@ ul.imgGrid.columns-4 li {
 }
 #dish-type{
 	margin-left: 38%;
-}
-.deleteBtn{
-    margin-right: 6px;
 }
