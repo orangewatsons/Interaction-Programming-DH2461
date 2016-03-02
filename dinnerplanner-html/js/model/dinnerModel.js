@@ -118,7 +118,8 @@ var DinnerModel = function() {
 	
 	this.addDishToMenu= function(id){
 	
-		var cost= document.getElementById("ingredientsCost").innerHTML ;
+		//var cost= document.getElementById("ingredientsCost").innerHTML ;
+		var cost=$("#ingredientsCost").attr("rawcost");
 		var title=document.getElementById("dishName").innerHTML;
 		
 		
@@ -215,7 +216,7 @@ var DinnerModel = function() {
 	}
 
 	this.getNewDishes = function(keyword, category){
-		var apiKey = "r02x0R09O76JMCMc4nuM0PJXawUHpBUL";
+		var apiKey = "8vtk7KykflO5IzB96kb0mpot0sU40096";
         var url = "http://api.bigoven.com/recipes?pg=1&rpp=10&any_kw="
                   + keyword 
                   + "&category=" + category + "&api_key="+apiKey;
@@ -248,7 +249,7 @@ var DinnerModel = function() {
 	}
 
 	this.getRecipe = function(ID){
-		var apiKey = "r02x0R09O76JMCMc4nuM0PJXawUHpBUL";
+		var apiKey = "8vtk7KykflO5IzB96kb0mpot0sU40096";
         var url = "http://api.bigoven.com/recipe/"
                   + ID + "?api_key="+apiKey+ "&pg=1&rpp=10";
         $.ajax({
@@ -272,8 +273,9 @@ var DinnerModel = function() {
 					row.append($("<td>").text(numberOfGuests));
 					$("#ingredientsTable").append(row);
 				}
-
-				$("#ingredientsCost").html(data.Ingredients.length * numberOfGuests);		
+				
+				$("#ingredientsCost").html(data.Ingredients.length * numberOfGuests);	
+				$("#ingredientsCost").attr("rawCost",data.Ingredients.length);
 
             }
         });

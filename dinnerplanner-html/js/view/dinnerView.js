@@ -16,13 +16,16 @@ var DinnerView = function(container, model){
 			var cell2 = row.insertCell(1);
 		
 			var dishName=model.getFullMenu()[i][0];
-			var dishCost=model.getFullMenu()[i][1];
+			var dishCost=$("#ingredientsCost").attr("rawcost")*model.getNumberOfGuests();
+			//var dishCost = model.getFullMenu()[i][1];
 			
 			cell1.innerHTML = dishName;
 			
-			//alert("dishcost: "+dishcost);
+			
 			cell2.innerHTML = dishCost + "<img style='cursor:pointer;' src='images/circle-close.png' id='closeBtn" + [i] + "'>";		
 		}
+		
+		
 		dinnerCost.innerHTML = dishCost;
 		
 		if(model.getFullMenu() != undefined && model.getFullMenu().length != 0){
