@@ -179,6 +179,73 @@ var DinnerModel = function() {
 		return totalCost;
 	}
 
+<<<<<<< HEAD
+=======
+	this.getNewDishes = function(keyword, category){
+		var apiKey = "18f3cT02U9f6yRl3OKDpP8NA537kxYKu";
+        var url = "http://api.bigoven.com/recipes?pg=1&rpp=10&any_kw="
+                  + keyword 
+                  + "&category=" + category + "&api_key="+apiKey;
+        $.ajax({
+            type: "GET",
+            dataType: 'json',
+            cache: false,
+            url: url,
+            success: function (data) {
+  			
+                for(var i in data.Results){
+                	//console.log(data.Results[i]);
+
+                	var imgList = document.createElement("li");
+
+                	var dishImg = document.createElement("img");
+                	dishImg.setAttribute('id', data.Results[i].RecipeID);
+                	dishImg.src = data.Results[i].ImageURL120;
+
+					var dishTitle = document.createElement("h5");
+					dishTitle.innerHTML = data.Results[i].Title;
+
+                	imgList.appendChild(dishImg);
+					imgList.appendChild(dishTitle);
+                	$("#dishList").append(imgList);
+                }
+               	//this.notifyObservers(keyword, category);
+            }
+        });
+	}
+
+	this.getRecipe = function(ID){
+		var apiKey = "18f3cT02U9f6yRl3OKDpP8NA537kxYKu";
+        var url = "http://api.bigoven.com/recipe/"
+                  + ID + "?api_key="+apiKey+ "&pg=1&rpp=10";
+        $.ajax({
+            type: "GET",
+            dataType: 'json',
+            cache: false,
+            url: url,
+            success: function (data) {
+  				console.log(data);
+  				
+  				$("#dishName").html(data.Title);
+  				$("#dishImg").attr("src", data.ImageURL);
+  				$("#dishDescr").html(data.Description);
+
+  				$("#ingredientsTable tr:gt(0)").remove();
+
+				for(var i in data.Ingredients){
+					var row = $('<tr>');
+					row.append($("<td>").text(data.Ingredients[i].Quantity + data.Ingredients[i].Unit));
+					row.append($("<td>").text(data.Ingredients[i].Name));
+					row.append($("<td>").text(numberOfGuests));
+					$("#ingredientsTable").append(row);
+				}
+
+				$("#ingredientsCost").html(data.Ingredients.length * numberOfGuests);		
+
+            }
+        });
+	}
+/*
 
 	// the dishes variable contains an array of all the 
 	// dishes in the database. each dish has id, name, type,
@@ -429,6 +496,6 @@ var DinnerModel = function() {
 			'price':6
 			}]
 		}
-	];
+	];*/
 
 }
