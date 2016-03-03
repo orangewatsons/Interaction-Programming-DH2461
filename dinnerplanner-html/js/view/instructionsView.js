@@ -22,14 +22,16 @@ var InstructionsView = function(container, model){
 				var cell2 = row.insertCell(2);
 			 
 				var dishImg = document.createElement("img");
-				dishImg.src = "images/" + menu[i].image;
+				dishImg.src = model.getFullMenu()[i][3];
+				dishImg.style.height = '150px';
+    			dishImg.style.width = '150px';
 				cell0.appendChild(dishImg);
 
 				var dishTitle = document.createElement("h4");
-				dishTitle.innerHTML = menu[i].name;
+				dishTitle.innerHTML = model.getFullMenu()[i][1];
 				cell1.appendChild(dishTitle);
 
-				cell2.innerHTML = menu[i].description;
+				cell2.innerHTML = model.getFullMenu()[i][4];
 			}
 		}
 	}

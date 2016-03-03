@@ -16,23 +16,14 @@ var DinnerController = function(view, model){
 		model.setNumberOfGuests(view.numOfGuests.value);
 	};
 
-	var addClose = function(){
-		if(model.getFullMenu() != undefined && model.getFullMenu().length != 0){
-			document.getElementById("closeBtn0").onclick = function(){
-				//model.removeDishFromMenu(0);
-				alert("do something!");
-			};
-			document.getElementById("closeBtn1").onclick = function(){
-				//model.removeDishFromMenu(1);
-				alert("do something!");
-			};
-			document.getElementById("closeBtn2").onclick = function(){
-				//model.removeDishFromMenu(2);
-				alert("do something!");
-			};
-		}
-	}
+	view.dinnerTable.on('click', 'img', function() {
+		var dishElement = $(this);
+		console.log(dishElement.attr('id'));
 
-	addClose();
+		var position = dishElement.attr("id")[dishElement.attr("id").length-1];
+		model.getFullMenu().splice(position,1);
+		model.notifyObservers();
+	});
+
 
 }

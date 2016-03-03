@@ -34,14 +34,15 @@ var DinnerView = function(container, model){
 			var closeBtns = dinnerTable.getElementsByTagName("img");
 			for(var i=0; i<closeBtns.length; i++){
 				var btn = closeBtns[i];
-				btn.onclick = function(){
-					/* Get the exact */
+				/*btn.onclick = function(){
 					var position=$(this).attr("id")[$(this).attr("id").length-1];
 					model.getFullMenu().splice(position,1);
 					model.notifyObservers();
-				};
+				};*/
 				
 			}
+		}else{
+			confirmDinner.disabled = true;
 		}
 	};
 

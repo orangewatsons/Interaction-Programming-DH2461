@@ -16,7 +16,7 @@ var DishController = function(view, model){
 		//document.getElementById('dishListView').style.display = 'none';
 		//document.getElementById('dishView').style.display = 'block';
 
-		//document.getElementById('pending').style.display = 'none';
+		document.getElementById('pending').style.display = 'none';
 	}
 
 }

@@ -95,7 +95,7 @@ var DinnerModel = function() {
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
 	//the static one
-	this.addDishToMenuStastic = function(id) {
+	this.addDishToMenuStatic = function(id) {
 		var newDish = this.getRecipe(id);
 		switch(newDish.Category){
 			case 'Appetizers':
@@ -122,14 +122,14 @@ var DinnerModel = function() {
 		var title=$("#ingredientsCost").attr("rawname");
 		var cost=$("#ingredientsCost").attr("rawcost");
 		var img=$("#ingredientsCost").attr("rawimg");
+		var instructions=$("#ingredientsCost").attr("rawinstructions");
 		
-		if(selectedDishes.length==0||selectedDishes=="undefined"){
-			selectedDishes[0]=[id,title,cost,img];
+		if(selectedDishes.length==0||selectedDishes==="undefined"){
+			selectedDishes[0]=[id,title,cost,img,instructions];
 			
 			
 		}else{
-			selectedDishes.push([id,title,cost,img]);
-			
+			selectedDishes.push([id,title,cost,img,instructions]);		
 			
 		}
 		
@@ -291,6 +291,7 @@ var DinnerModel = function() {
 				$("#ingredientsCost").attr("rawname",data.Title);
 				$("#ingredientsCost").attr("rawcost",data.Ingredients.length);
 				$("#ingredientsCost").attr("rawimg",data.ImageURL);
+				$("#ingredientsCost").attr("rawinstructions", data.Instructions);
 				
 				
 
