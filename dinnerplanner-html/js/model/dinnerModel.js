@@ -55,6 +55,7 @@ var DinnerModel = function() {
 				return null;
 		}
 	}
+	
 
 	//Returns all the dishes on the menu.
 	this.getFullMenu = function() {
@@ -93,7 +94,6 @@ var DinnerModel = function() {
 
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
-	/****/
 	//the static one
 	this.addDishToMenuStastic = function(id) {
 		var newDish = this.getRecipe(id);
@@ -118,28 +118,22 @@ var DinnerModel = function() {
 	
 	this.addDishToMenu= function(id){
 	
-		//var cost= document.getElementById("ingredientsCost").innerHTML ;
+		var id =$("#ingredientsCost").attr("rawid");
+		var title=$("#ingredientsCost").attr("rawname");
 		var cost=$("#ingredientsCost").attr("rawcost");
-		var title=document.getElementById("dishName").innerHTML;
-		
-		
-		
-		//console.log("cost: "+cost);
-		//console.log("title: "+title);
+		var img=$("#ingredientsCost").attr("rawimg");
 		
 		if(selectedDishes.length==0||selectedDishes=="undefined"){
-			selectedDishes[0]=[title,cost];
-			//alert(1);
-			//alert(selectedDishes.length)
+			selectedDishes[0]=[id,title,cost,img];
 			
-		}else if(selectedDishes.length>=1){
-			//alert(2);
-			selectedDishes.push([title,cost]);
-			//alert(selectedDishes.length);
+			
+		}else{
+			selectedDishes.push([id,title,cost,img]);
+			
 			
 		}
 		
-		//console.log(selectedDishes);
+		
 		
 		$('#confirmDinner').attr('disabled', false);
 		this.notifyObservers();
@@ -160,12 +154,16 @@ var DinnerModel = function() {
 		this.notifyObservers();
 	}
 
+	
+	
+	
+	
+	
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
 	//you can use the filter argument to filter out the dish by name or ingredient (use for search)
 	//if you don't pass any filter all the dishes will be returned
 	this.getAllDishes = function (type,filter) {
-	//alert("filter"+filter);
-	//alert("type"+type);
+
 	  return $(dishes).filter(function(index,dish) {
 		var found = true;
 		if(filter!=""){
@@ -203,20 +201,36 @@ var DinnerModel = function() {
 		}
 		return totalCost;
 	}
+	
+	//function that returns the total cost of selected Dish
+	this.getDinnerCost=function(){
+		var cost=0;
+		for (var i=0;i<selectedDishes.length;i++){
+			cost+=parseFloat(selectedDishes[i][2]);
+		}
+
+		return cost*numberOfGuests;
+	}
+	
 
 	/*After the change of using dynamic data, it seems no need to use this function
 	 * because now the cost is a number that stored in the selectedDish array.
 	 */this.getSelectedDishCost = function(position){
-		var totalCost = 0;
+		var cost = 0;
 
 		for(var i=0; i<selectedDishes[position].ingredients.length; i++){
-			totalCost += (selectedDishes[position].ingredients[i].price * numberOfGuests);
+			
+			cost+= (parseInt(selectedDishes[position][2]));
 		}
-		return totalCost;
+
+		return cost;
 	}
 
+	 
+	 
+	 
 	this.getNewDishes = function(keyword, category){
-		var apiKey = "8vtk7KykflO5IzB96kb0mpot0sU40096";
+		var apiKey = "XKEdN82lQn8x6Y5jm3K1ZX8L895WUoXN";
         var url = "http://api.bigoven.com/recipes?pg=1&rpp=10&any_kw="
                   + keyword 
                   + "&category=" + category + "&api_key="+apiKey;
@@ -228,7 +242,6 @@ var DinnerModel = function() {
             success: function (data) {
   			
                 for(var i in data.Results){
-                	//console.log(data.Results[i]);
 
                 	var imgList = document.createElement("li");
 
@@ -243,13 +256,12 @@ var DinnerModel = function() {
 					imgList.appendChild(dishTitle);
                 	$("#dishList").append(imgList);
                 }
-               	//this.notifyObservers(keyword, category);
             }
         });
 	}
 
 	this.getRecipe = function(ID){
-		var apiKey = "8vtk7KykflO5IzB96kb0mpot0sU40096";
+		var apiKey = "XKEdN82lQn8x6Y5jm3K1ZX8L895WUoXN";
         var url = "http://api.bigoven.com/recipe/"
                   + ID + "?api_key="+apiKey+ "&pg=1&rpp=10";
         $.ajax({
@@ -275,7 +287,12 @@ var DinnerModel = function() {
 				}
 				
 				$("#ingredientsCost").html(data.Ingredients.length * numberOfGuests);	
-				$("#ingredientsCost").attr("rawCost",data.Ingredients.length);
+				$("#ingredientsCost").attr("rawid",data.RecipeID);
+				$("#ingredientsCost").attr("rawname",data.Title);
+				$("#ingredientsCost").attr("rawcost",data.Ingredients.length);
+				$("#ingredientsCost").attr("rawimg",data.ImageURL);
+				
+				
 
             }
         });

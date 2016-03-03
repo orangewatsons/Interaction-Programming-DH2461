@@ -21,21 +21,28 @@ var DinnerOverviewView = function(container, model){
 				var imgList = document.createElement("li");
 
 				var dishImg = document.createElement("img");
-				dishImg.setAttribute('id', menu[i].id);
-				dishImg.src = "images/" + menu[i].image;
+				dishImg.setAttribute('id', model.getFullMenu()[i][0]);
+				
+
+				dishImg.src =  model.getFullMenu()[i][3];
 
 				var dishTitle = document.createElement("h5");
-				dishTitle.innerHTML = menu[i].name;
+				dishTitle.innerHTML = model.getFullMenu()[i][1];
 
 				var dishCost = document.createElement("p");
-				dishCost.innerHTML = "SEK " + model.getFullMenu()[i][1]; 
-
+			
+				dishCost.innerHTML = "SEK " + model.getFullMenu()[i][2]*model.getNumberOfGuests();
+				
 				imgList.appendChild(dishImg);
 				imgList.appendChild(dishTitle);
 				imgList.appendChild(dishCost);
 				overview.appendChild(imgList);
+				
+				totalCost.innerHTML = "SEK " + model.getDinnerCost();
+				
 			}
-			totalCost.innerHTML = "SEK " + document.getElementById("dinnerCost");
+			
+			
 		}
 	}
 
